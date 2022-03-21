@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "com.pbatchis.miniblog.jwtExpirationMs",
+    "type": "java.lang.String",
+    "description": "The expiration period in milliseconds of a JWT token."
+  },
+  {
+    "name": "com.pbatchis.miniblog.jwtSecretKey",
+    "type": "java.lang.String",
+    "description": "The secret key used for the JWT encoding."
+  },
+  {
+    "name": "com.pbatchis.miniblog.jwtSignatureAlgorithm",
+    "type": "java.lang.String",
+    "description": "Name of the signature algorithm to use in generating a JWT token."
+  }
+]}
