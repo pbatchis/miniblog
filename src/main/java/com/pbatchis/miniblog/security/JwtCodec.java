@@ -17,16 +17,16 @@ public class JwtCodec {
 
 	private static final Logger logger = LoggerFactory.getLogger(JwtCodec.class);
 
-    @Value("${com.pbatchis.miniblog.jwtExpirationMs}")
+	@Value("${com.pbatchis.miniblog.jwtExpirationMs}")
 	private int jwtExpirationMs;
 
 	@Value("${com.pbatchis.miniblog.jwtSignatureAlgorithm}")
 	private String jwtSignatureAlgorithm;
 
-    @Value("${com.pbatchis.miniblog.jwtSecretKey}")
+	@Value("${com.pbatchis.miniblog.jwtSecretKey}")
 	private String jwtSecretKey;
 
-    public String generateJwtToken(String username) {
+	public String generateJwtToken(String username) {
 		Date now = new Date();
 		return Jwts.builder()
 				.setSubject(username)

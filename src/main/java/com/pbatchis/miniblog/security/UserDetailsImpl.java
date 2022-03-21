@@ -10,65 +10,65 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class UserDetailsImpl implements UserDetails {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    private Long id;
+	private Long id;
 
-    private String username;
+	private String username;
 
-    @JsonIgnore
+	@JsonIgnore
 	private String password;
 
-    public UserDetailsImpl(Long id, String username, String password) {
+	public UserDetailsImpl(Long id, String username, String password) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
 	}
 
-    public static UserDetailsImpl build(User user) {
+	public static UserDetailsImpl build(User user) {
 		return new UserDetailsImpl(user.getId(), user.getUsername(), user.getPassword());
 	}
 
-    @Override
+	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return Collections.<GrantedAuthority> emptyList();
+		return Collections.<GrantedAuthority>emptyList();
 	}
 
 	public Long getId() {
 		return id;
 	}
 
-    @Override
+	@Override
 	public String getPassword() {
 		return password;
 	}
 
-    @Override
+	@Override
 	public String getUsername() {
 		return username;
 	}
 
-    @Override
+	@Override
 	public boolean isAccountNonExpired() {
 		return true;
 	}
 
-    @Override
+	@Override
 	public boolean isAccountNonLocked() {
 		return true;
 	}
 
-    @Override
+	@Override
 	public boolean isCredentialsNonExpired() {
 		return true;
 	}
 
-    @Override
+	@Override
 	public boolean isEnabled() {
 		return true;
 	}
 
-    @Override
+	@Override
 	public boolean equals(Object o) {
 		if (this == o)
 			return true;

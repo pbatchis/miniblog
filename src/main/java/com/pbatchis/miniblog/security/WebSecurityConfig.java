@@ -19,34 +19,34 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
+	@Autowired
 	UserDetailsServiceImpl userDetailsService;
 
-    @Autowired
+	@Autowired
 	private JwtAuthenticationEntryPoint authenticationEntryPoint;
 
-    @Bean
+	@Bean
 	public JwtAuthorizationFilter jwtAuthorizationFilter() {
 		return new JwtAuthorizationFilter();
 	}
 
-    @Override
+	@Override
 	public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
 		authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
 	}
 
-    @Bean
+	@Bean
 	@Override
 	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
 	}
 
-    @Bean
+	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 
-    @Override
+	@Override
 	protected void configure(HttpSecurity security) throws Exception {
 		security.cors().and().csrf().disable()
 				.exceptionHandling().authenticationEntryPoint(authenticationEntryPoint).and()

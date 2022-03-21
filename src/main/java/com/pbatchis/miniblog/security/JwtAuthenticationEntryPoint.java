@@ -20,12 +20,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
-    private static final Logger logger = LoggerFactory.getLogger(JwtAuthenticationEntryPoint.class);
+	private static final Logger logger = LoggerFactory.getLogger(JwtAuthenticationEntryPoint.class);
 
 	@Autowired
 	ObjectMapper objectMapper;
 
-    @Override
+	@Override
 	public void commence(HttpServletRequest request, HttpServletResponse response,
 			AuthenticationException authException) throws IOException, ServletException {
 

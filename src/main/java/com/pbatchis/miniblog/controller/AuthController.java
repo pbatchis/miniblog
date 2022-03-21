@@ -29,21 +29,22 @@ public class AuthController {
 	@Autowired
 	AuthenticationManager authenticationManager;
 
-    @Autowired
+	@Autowired
 	UserRepository userRepository;
 
-    @Autowired
+	@Autowired
 	PasswordEncoder passwordEncoder;
 
-    @Autowired
+	@Autowired
 	JwtCodec jwtCodec;
 
-    @PostMapping("/signin")
+	@PostMapping("/signin")
 	public ResponseEntity<?> authenticateUser(@RequestBody AuthSigninRequestBody requestBody) {
 		String username = requestBody.getUsername();
 		String password = requestBody.getPassword();
 
-		// Authenticate user. Otherwise AuthenticationException will throw, and return 401.
+		// Authenticate user. Otherwise AuthenticationException will throw, and return
+		// 401.
 		Authentication authentication = authenticationManager.authenticate(
 				new UsernamePasswordAuthenticationToken(username, password));
 
@@ -52,29 +53,29 @@ public class AuthController {
 
 		// Generate JWT token for the response.
 		String jwtToken = jwtCodec.generateJwtToken(requestBody.getUsername());
-		
+
 		return ResponseEntity.ok(AuthSigninResponseBody.of(jwtToken, username));
 	}
 
 	@PostMapping("/register")
 	public ResponseEntity<?> registerUser(@RequestBody AuthRegisterRequestBody requestBody) {
 
-        // Validate
-        if (requestBody.getUsername().isBlank()) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(MessageResponseBody.of("Username cannot be blank."));
-        }
-        if (requestBody.getPassword().isBlank()) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(MessageResponseBody.of("Password cannot be blank."));
-        }
+		// Validate
+		if (requestBody.getUsername().isBlank()) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+					.body(MessageResponseBody.of("Username cannot be blank."));
+		}
+		if (requestBody.getPassword().isBlank()) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+					.body(MessageResponseBody.of("Password cannot be blank."));
+		}
 		if (userRepository.existsByUsername(requestBody.getUsername())) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST)
 					.body(MessageResponseBody.of("Username already taken."));
 		}
 
 		// Create new user account
-        String encodedPassword = passwordEncoder.encode(requestBody.getPassword());
+		String encodedPassword = passwordEncoder.encode(requestBody.getPassword());
 		User user = new User(requestBody.getUsername(), encodedPassword);
 		userRepository.save(user);
 		return ResponseEntity.ok(MessageResponseBody.of("User registered successfully."));

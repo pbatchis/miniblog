@@ -2,11 +2,12 @@ package com.pbatchis.miniblog.payload.request;
 
 public class AuthSigninRequestBody {
 
-    private String username;
+	private String username;
 
 	private String password;
 
-	public AuthSigninRequestBody() {}
+	public AuthSigninRequestBody() {
+	}
 
 	public String getUsername() {
 		return username;

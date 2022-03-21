@@ -15,8 +15,8 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.web.filter.OncePerRequestFilter;
 
 /**
- * This filter is used on every request to check for 
- * JWT authorization, and if so authorized, puts the 
+ * This filter is used on every request to check for
+ * JWT authorization, and if so authorized, puts the
  * user authentication data into the security context.
  */
 public class JwtAuthorizationFilter extends OncePerRequestFilter {
@@ -24,15 +24,16 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
 	@Autowired
 	private JwtCodec jwtCodec;
 
-    @Autowired
+	@Autowired
 	private UserDetailsService userDetailsService;
 
-	public JwtAuthorizationFilter() {}
+	public JwtAuthorizationFilter() {
+	}
 
-    @Override
+	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
-		
+
 		// Authorization by JWT
 		String authorizationHeader = request.getHeader("Authorization");
 		if (authorizationHeader != null) {
@@ -45,7 +46,7 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
 							userDetails, null, userDetails.getAuthorities());
 					authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 					SecurityContextHolder.getContext().setAuthentication(authentication);
-				}	
+				}
 			}
 		}
 
