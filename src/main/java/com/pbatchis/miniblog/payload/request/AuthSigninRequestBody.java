@@ -1,5 +1,8 @@
 package com.pbatchis.miniblog.payload.request;
 
+/**
+ * Request body from a user performing signin.
+ */
 public class AuthSigninRequestBody {
 
 	private String username;

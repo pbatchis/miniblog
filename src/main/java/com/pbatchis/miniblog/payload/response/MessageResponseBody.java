@@ -1,5 +1,9 @@
 package com.pbatchis.miniblog.payload.response;
 
+/**
+ * Response body in any case when only a message is delivered 
+ * with no other data.
+ */
 public class MessageResponseBody {
 
     private String message;

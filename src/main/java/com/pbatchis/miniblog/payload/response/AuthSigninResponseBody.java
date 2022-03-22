@@ -1,5 +1,8 @@
 package com.pbatchis.miniblog.payload.response;
 
+/**
+ * Response body when the user has a successful signin.
+ */
 public class AuthSigninResponseBody {
 
     private String token;

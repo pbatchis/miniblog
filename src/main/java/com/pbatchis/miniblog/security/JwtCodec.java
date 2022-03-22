@@ -12,6 +12,11 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.SignatureException;
 import io.jsonwebtoken.UnsupportedJwtException;
 
+/**
+ * Handles encoding and decoding of JWT tokens.
+ * JWT tokens are signed using jwtSecretKey 
+ * whose value is only known by the server.
+ */
 @Component
 public class JwtCodec {
 

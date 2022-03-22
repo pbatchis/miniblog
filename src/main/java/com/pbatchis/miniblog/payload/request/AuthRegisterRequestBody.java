@@ -1,5 +1,8 @@
 package com.pbatchis.miniblog.payload.request;
 
+/**
+ * Request body for registering a new user.
+ */
 public class AuthRegisterRequestBody {
 
     private String username;
