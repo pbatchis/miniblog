@@ -5,8 +5,8 @@ import java.util.Collections;
 import java.util.Objects;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import com.pbatchis.miniblog.model.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.pbatchis.miniblog.domain.User;
 
 public class UserDetailsImpl implements UserDetails {
 

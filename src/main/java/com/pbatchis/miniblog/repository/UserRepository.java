@@ -1,9 +1,9 @@
 package com.pbatchis.miniblog.repository;
 
 import java.util.Optional;
+import com.pbatchis.miniblog.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import com.pbatchis.miniblog.model.User;
 
 /**
  * Persistence operations for the User entity.

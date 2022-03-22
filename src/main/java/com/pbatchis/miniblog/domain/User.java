@@ -1,4 +1,4 @@
-package com.pbatchis.miniblog.model;
+package com.pbatchis.miniblog.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
