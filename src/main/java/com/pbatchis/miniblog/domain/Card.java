@@ -12,22 +12,22 @@ import javax.persistence.Version;
 
 /**
  * A card is an entry in the blog.
- * Each card has an author (the user who originally 
- * added the card) who has ownership privlage. 
+ * Each card has an author (the user who originally
+ * added the card) who has ownership privlage.
  * Only the author can edit or delete a card.
  */
 @Entity
 @Table(name = "card")
 public class Card {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Version
-	private long version;
+    private long version;
 
-	private String name;
+    private String name;
 
     private String status;
 
@@ -36,23 +36,23 @@ public class Card {
     private String category;
 
     @ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id")
     private User author;
 
-	public Card() {
-	}
+    public Card() {
+    }
 
     public Card(String name, String status, String content, String category, User author) {
-		this.name = name;
-		this.status = status;
+        this.name = name;
+        this.status = status;
         this.content = content;
         this.category = category;
         this.author = author;
-	}
+    }
 
     public Long getId() {
-		return id;
-	}
+        return id;
+    }
 
     public String getName() {
         return name;

@@ -39,10 +39,10 @@ public class CardController {
 		return CardGetResponseBody.of(cards);
 	}
 
-    @PostMapping("/add")
-	public ResponseEntity<?> add(Authentication authentication, 
+	@PostMapping("/add")
+	public ResponseEntity<?> add(Authentication authentication,
 			@RequestBody CardAddRequestBody requestBody) {
-		
+
 		// Validate authorization to add card.
 		if (authentication == null) {
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(
@@ -64,9 +64,9 @@ public class CardController {
 		cardRepository.save(card);
 		return ResponseEntity.ok(MessageResponseBody.of("Card[%d] added.", card.getId()));
 	}
-    
-    @PostMapping("/edit")
-	public ResponseEntity<?> edit(Authentication authentication, 
+
+	@PostMapping("/edit")
+	public ResponseEntity<?> edit(Authentication authentication,
 			@RequestBody CardEditRequestBody requestBody) {
 
 		// Validate authorization to edit card.
@@ -94,9 +94,9 @@ public class CardController {
 		cardRepository.save(card);
 		return ResponseEntity.ok(MessageResponseBody.of("Card[%d] edited.", card.getId()));
 	}
-    
-    @PostMapping("/delete")
-	public ResponseEntity<?> delete(Authentication authentication, 
+
+	@PostMapping("/delete")
+	public ResponseEntity<?> delete(Authentication authentication,
 			@RequestBody CardDeleteRequestBody requestBody) {
 
 		// Validate authorization to delete card.
