@@ -1,8 +1,8 @@
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+**/src/main/**/target/
+**/src/test/**/target/
 
 ### STS ###
 .apt_generated
@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Misc ###
+package-lock.json
+node_modules
+bundle.js
+bundle.js.LICENSE.txt
