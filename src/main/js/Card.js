@@ -9,11 +9,11 @@ class Card extends React.Component {
     render() {
         return (
             <div className="Card">
-                <div>{this.props.category}</div>
-                <div>{this.props.name}</div>
-                <div>{this.props.content}</div>
-                <div>{this.props.status}</div>
-                <div>{this.props.author}</div>
+                <div className="category">{this.props.category}</div>
+                <div className="name">{this.props.name}</div>
+                <div className="content">{this.props.content}</div>
+                <div className="status">{this.props.status}</div>
+                <div className="author">{this.props.author}</div>
             </div>
         )
     }

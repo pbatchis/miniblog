@@ -33,7 +33,7 @@ class BlogView extends React.Component {
                     content={card.content} category={card.category} author={card.author} />
         );
         return (
-            <div className="MainView">
+            <div className="BlogView MainView">
                 <div className="CardList">
                     {cards}
                 </div>

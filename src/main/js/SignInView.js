@@ -54,11 +54,11 @@ class SignInView extends React.Component {
 
     render() {
         return (
-            <div className="MainView">
-                <div>
+            <div className="SignInView AuthView MainView">
+                <div className="header">
                     Sign In
                 </div>
-                <div>
+                <div className="body">
                     <div>
                         Please enter your username and password:
                     </div>
@@ -75,7 +75,7 @@ class SignInView extends React.Component {
                             <input type="submit" value="Sign In" />
                         </form>
                     </div>
-                    <div>
+                    <div className="errorMessage">
                         {this.state.failureMessage}
                     </div>
                 </div>

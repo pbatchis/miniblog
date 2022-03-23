@@ -52,11 +52,11 @@ class RegisterView extends React.Component {
 
     render() {
         return (
-            <div className="MainView">
-                <div>
+            <div className="RegisterView AuthView MainView">
+                <div className="header">
                     Register a New Account
                 </div>
-                <div>
+                <div className="body">
                     <div>
                         Please choose a username and password:
                     </div>
@@ -73,7 +73,7 @@ class RegisterView extends React.Component {
                             <input type="submit" value="Register" />
                         </form>
                     </div>
-                    <div>
+                    <div className="errorMessage">
                         {this.state.failureMessage}
                     </div>
                 </div>
