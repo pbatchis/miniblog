@@ -1,6 +1,6 @@
 const React = require('react');
 const AnonControlBar = require('./AnonControlBar').default;
-const SignedInControlBar = require('./SignedControlBar').default;
+const SignedInControlBar = require('./SignedInControlBar').default;
 const BlogView = require('./BlogView').default;
 const RegisterView = require('./RegisterView').default;
 const SignInView = require('./SignInView').default;
