@@ -13,6 +13,7 @@ class BlogView extends React.Component {
         this.loadCards = this.loadCards.bind(this);
         this.handleBeginEdit = this.handleBeginEdit.bind(this);
         this.handleEndEdit = this.handleEndEdit.bind(this);
+        this.handleEndEditAndUpdate = this.handleEndEditAndUpdate.bind(this);
     }
 
     componentDidMount() {
@@ -37,12 +38,42 @@ class BlogView extends React.Component {
     }
 
     handleEndEdit(cardId) {
-        // this.setState((state) => {
-        //     (cardId === state.editeeId) 
-        //         ? {editeeId: null} 
-        //         : {}
-        // });
-        this.setState({editeeId: null});
+        this.setState((state) => {
+            if (cardId === state.editeeId) {
+                return {editeeId: null};
+            }
+            return {};
+        });
+    }
+
+    handleEndEditAndUpdate(cardId, name, status, content, category) {
+        this.handleEndEdit(cardId);
+        this.setState((state, props) => {
+            const cardIdNum = parseInt(cardId);
+            const updatedCards = [];
+            for (let card of state.cards) {
+                if (card.id === cardIdNum) {
+                    updatedCards.push({
+                        id: card.id,
+                        name: name,
+                        status: status,
+                        content: content,
+                        category: category,
+                        author: card.author
+                    });
+                } else {
+                    updatedCards.push({
+                        id: card.id,
+                        name: card.name,
+                        status: card.status,
+                        content: card.content,
+                        category: card.category,
+                        author: card.author
+                    });
+                }
+            }
+            return {cards: updatedCards};
+        });
     }
 
     buildCardListItem(id, name, status, content, category, author) {
@@ -58,7 +89,8 @@ class BlogView extends React.Component {
                         category={category}
                         author={author}
                         jwtToken={this.props.jwtToken}
-                        onEndEdit={this.handleEndEdit} />
+                        onEndEdit={this.handleEndEdit}
+                        onEndEditAndUpdate={this.handleEndEditAndUpdate} />
                 </li>
             :
                 <li>

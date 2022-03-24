@@ -38,7 +38,7 @@ class EditeeCard extends React.Component {
     }
 
     handleEditOk() {
-        // Save the card state, then end the edit session.
+        // Save the card state, then end the edit session and update card state.
         postAuthJson('/api/card/edit', this.props.jwtToken, {
             id: this.props.id,
             name: this.state.name,
@@ -48,7 +48,13 @@ class EditeeCard extends React.Component {
         })
         .then((response) => {
             if (response.ok) {
-                this.props.onEndEdit(this.props.id);
+                this.props.onEndEditAndUpdate(
+                    this.props.id,
+                    this.state.name,
+                    this.state.status,
+                    this.state.content,
+                    this.state.category
+                );
             }
         })
     }
