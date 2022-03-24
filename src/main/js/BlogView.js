@@ -2,6 +2,7 @@ const React = require('react');
 const Card = require('./Card').default;
 const EditeeCard = require('./EditeeCard').default;
 const NewCard = require('./NewCard').default;
+const postAuthJson = require('./postAuthJson').default;
 
 class BlogView extends React.Component {
 
@@ -17,6 +18,7 @@ class BlogView extends React.Component {
         this.handleEndEdit = this.handleEndEdit.bind(this);
         this.handleEndEditAndUpdate = this.handleEndEditAndUpdate.bind(this);
         this.handleEndEditAndAdd = this.handleEndEditAndAdd.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     componentDidMount() {
@@ -159,6 +161,34 @@ class BlogView extends React.Component {
         });
     }
 
+    handleDelete(cardId) {
+        postAuthJson('/api/card/delete', this.props.jwtToken, {
+            id: cardId
+        })
+        .then((response) => {
+            if (response.ok) {
+                // remove card from state
+                this.setState((state, props) => {
+                    const cardIdNum = parseInt(cardId);
+                    const updatedCards = [];
+                    for (let card of state.cards) {
+                        if (!(card.id === cardIdNum)) {
+                            updatedCards.push({
+                                id: card.id,
+                                name: card.name,
+                                status: card.status,
+                                content: card.content,
+                                category: card.category,
+                                author: card.author
+                            });
+                        }
+                    }
+                    return {cards: updatedCards}
+                });
+            }
+        });
+    }
+
     buildCardListItem(id, name, status, content, category, author) {
         return (id === this.state.editeeId)
             ?
@@ -187,7 +217,8 @@ class BlogView extends React.Component {
                         category={category}
                         author={author}
                         signedInUsername={this.props.username}
-                        onEdit={this.handleBeginEdit} />
+                        onEdit={this.handleBeginEdit}
+                        onDelete={this.handleDelete} />
                 </li>
     }
 

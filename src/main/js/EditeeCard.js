@@ -93,8 +93,8 @@ class EditeeCard extends React.Component {
                 <div>
                     <input type="text" name="category" placeholder="Category" onChange={this.handleChangeCategory} value={this.state.category} />
                     <div>
-                        <button onClick={this.handleEditOk}>OK</button>
                         <button onClick={this.handleEditCancel}>Cancel</button>
+                        <button onClick={this.handleEditOk}>OK</button>
                     </div>
                 </div>
                 <input type="text" name="name" placeholder="Name" onChange={this.handleChangeName} value={this.state.name} />

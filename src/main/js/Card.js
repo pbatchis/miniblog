@@ -4,8 +4,13 @@ class Card extends React.Component {
     
     constructor(props) {
         super(props);
+        this.state = {
+            confirmingDelete: false
+        }
         this.handleEdit = this.handleEdit.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
+        this.handleCancelDelete = this.handleCancelDelete.bind(this);
+        this.handleConfirmDelete = this.handleConfirmDelete.bind(this);
     }
 
     handleEdit() {
@@ -13,7 +18,15 @@ class Card extends React.Component {
     }
 
     handleDelete() {
+        this.setState({confirmingDelete: true});
+    }
 
+    handleCancelDelete() {
+        this.setState({confirmingDelete: false});
+    }
+
+    handleConfirmDelete() {
+        this.props.onDelete(this.props.id);
     }
 
     isEditable() {
@@ -23,9 +36,18 @@ class Card extends React.Component {
     render() {
         return (
             <div className="Card">
+                {this.state.confirmingDelete &&
+                    <div>
+                        <div>Are you sure you want to Delete this card?</div>
+                        <div>
+                            <button onClick={this.handleCancelDelete}>Cancel</button>
+                            <button onClick={this.handleConfirmDelete}>Yes, Delete</button>
+                        </div>
+                    </div>
+                }
                 <div>
                     <div className="category">{this.props.category}</div>
-                    {this.isEditable() &&
+                    {this.isEditable() && !this.state.confirmingDelete &&
                         <div>
                             <button onClick={this.handleEdit}>Edit</button>
                             <button onClick={this.handleDelete}>Delete</button>
