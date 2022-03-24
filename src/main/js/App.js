@@ -19,7 +19,6 @@ class App extends React.Component {
         this.handleSignIn = this.handleSignIn.bind(this);
         this.handleSignInSuccess = this.handleSignInSuccess.bind(this);
         this.handleSignOut = this.handleSignOut.bind(this);
-        this.handleNewCard = this.handleNewCard.bind(this);
     }
 
     handleBlog(event) {
@@ -54,11 +53,6 @@ class App extends React.Component {
         })
     }
 
-    handleNewCard(event) {
-        event.preventDefault();
-
-    }
-
     isSignedIn() {
         return (this.state.jwtToken != null)
     }
@@ -78,7 +72,6 @@ class App extends React.Component {
                 {this.isSignedIn()
                     ? <SignedInControlBar 
                             onBlog={this.handleBlog}
-                            onNewCard={this.handleNewCard} 
                             onSignOut={this.handleSignOut} />
                     : <AnonControlBar
                             onBlog={this.handleBlog}
