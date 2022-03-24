@@ -226,7 +226,7 @@ class BlogView extends React.Component {
         return (
             <div className="BlogView MainView">
                 <ul className="CardList">
-                    {!(this.props.username === null) && this.state.editeeId === null &&
+                    {!(this.props.username === null) &&
                         <li>
                             <NewCard key="new" onNewCard={this.handleNewCard} />
                         </li>
