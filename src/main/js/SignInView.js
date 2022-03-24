@@ -43,11 +43,11 @@ class SignInView extends React.Component {
         if (response.ok) {
             this.setState({failureMessage: ''});
             response.json().then(data => {
-                this.props.onSignInSuccess(data.accessToken);
+                this.props.onSignInSuccess(data.username, data.accessToken);
             })
         } else {
             response.json().then(data => {
-                this.setState({failureMessage: 'Sign-in Failed: ' + data.message});
+                this.setState({failureMessage: 'Sign in Failed: ' + data.message});
             })
         }
     }
@@ -72,7 +72,7 @@ class SignInView extends React.Component {
                                 Password
                                 <input type="password" name="password" onChange={this.handleChangePassword} />
                             </label>
-                            <input type="submit" value="Sign In" />
+                            <input className="button" type="submit" value="Sign In" />
                         </form>
                     </div>
                     <div className="errorMessage">

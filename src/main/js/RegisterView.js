@@ -70,7 +70,7 @@ class RegisterView extends React.Component {
                                 Password
                                 <input type="password" name="password" onChange={this.handleChangePassword} />
                             </label>
-                            <input type="submit" value="Register" />
+                            <input className="button" type="submit" value="Register" />
                         </form>
                     </div>
                     <div className="errorMessage">

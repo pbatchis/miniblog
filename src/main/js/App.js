@@ -10,15 +10,16 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            signedIn: false, 
             viewMode: 'BlogView', 
+            username: null, 
             jwtToken: null
         };
-        this.handleSignOut = this.handleSignOut.bind(this);
         this.handleBlog = this.handleBlog.bind(this);
         this.handleRegister = this.handleRegister.bind(this);
         this.handleSignIn = this.handleSignIn.bind(this);
         this.handleSignInSuccess = this.handleSignInSuccess.bind(this);
+        this.handleSignOut = this.handleSignOut.bind(this);
+        this.handleNewCard = this.handleNewCard.bind(this);
     }
 
     handleBlog(event) {
@@ -36,31 +37,35 @@ class App extends React.Component {
         this.setState({viewMode: 'SignInView'});
     }
 
-    handleSignInSuccess(jwtToken) {
+    handleSignInSuccess(username, jwtToken) {
         this.setState({
-            signedIn: true,
             viewMode: 'BlogView', 
+            username: username,
             jwtToken: jwtToken
         });
-        console.log('App set jwtToken: ' + jwtToken);
     }
 
     handleSignOut(event) {
         event.preventDefault();
         this.setState({
-            signedIn: false, 
             viewMode: 'BlogView', 
+            username: null,
             jwtToken: null
         })
+    }
+
+    handleNewCard(event) {
+        event.preventDefault();
+
     }
 
     isSignedIn() {
         return (this.state.jwtToken != null)
     }
 
-    mainViewComponent() {
+    buildMainView() {
         switch (this.state.viewMode) {
-            case 'BlogView': return <BlogView />
+            case 'BlogView': return <BlogView username={this.state.username} jwtToken={this.state.jwtToken} />
             case 'RegisterView': return <RegisterView />
             case 'SignInView': return <SignInView onSignInSuccess={this.handleSignInSuccess} />
             default: return null
@@ -72,13 +77,15 @@ class App extends React.Component {
             <div className="App">
                 {this.isSignedIn()
                     ? <SignedInControlBar 
+                            onBlog={this.handleBlog}
+                            onNewCard={this.handleNewCard} 
                             onSignOut={this.handleSignOut} />
                     : <AnonControlBar
                             onBlog={this.handleBlog}
                             onRegister={this.handleRegister}
                             onSignIn={this.handleSignIn} />
                 }
-                {this.mainViewComponent()}
+                {this.buildMainView()}
             </div>
         )
     }

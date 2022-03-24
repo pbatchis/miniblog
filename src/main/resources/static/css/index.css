@@ -12,34 +12,49 @@ body {
     padding: 1em;
 }
 
-.Card {
-    background-color: #FFFFFF;
-    padding: 1em;
-}
-
-.CardList {
-    display: flex;
-    flex-flow: column wrap;
-    align-items: center;
-    align-content: center;
-    gap: 1em;
+button, .button {
+    background-color: #66AAFF;
+    color: white;
+    border: 0;
+    border-radius: 0.3em;
+    padding: 0.3em 0.8em;
+    margin: 0.3em;
 }
 
 .ControlBar {
+    display: flex;
+    justify-content: space-between;
     background-color: #66AAFF;
+    padding: 0;
+}
+.ControlBar .startSide {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0;
+}
+.ControlBar .endSide {
     display: flex;
     justify-content: flex-end;
-    padding: 0
+    padding: 0;
 }
-
 .ControlBar a {
-    margin: 1.2em;
-    padding: 0.3em;
+    margin: 1.5em;
+    padding: 0;
     text-decoration: none;
     color: black;
 }
+.ControlBar .startSide a {
+    font-size: 200%;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0.80em;
+}
 .ControlBar a:hover {
-    color:#FFFFFF
+    color: white;
+}
+.ControlBar a:active {
+    color: black;
 }
 
 .AuthView .header {
@@ -78,4 +93,21 @@ body {
 }
 .BlogView .author {
     text-align: right;
+}
+.BlogView ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.Card {
+    background-color: #FFFFFF;
+    padding: 1em;
+    border-radius: 0.1cm;
+}
+.CardList {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    align-content: center;
+    gap: 1em;
 }
