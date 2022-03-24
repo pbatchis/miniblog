@@ -4,6 +4,7 @@
 }
 
 body {
+    background-color: #DDDDDD;
     margin: 0;
 }
 
@@ -18,7 +19,7 @@ button, .button {
     border: 0;
     border-radius: 0.3em;
     padding: 0.3em 0.8em;
-    margin: 0.3em;
+    margin: 0 0.3em;
 }
 button:hover {
     background-color: #4488DD;
@@ -57,10 +58,10 @@ button:active {
     margin-left: 0.80em;
 }
 .ControlBar a:hover {
-    color: white;
+    color: #333333;
 }
 .ControlBar a:active {
-    color: #CCCCCC;
+    color: #666666;
 } 
 
 .AuthView .header {
@@ -73,10 +74,16 @@ button:active {
 .AuthView .body * {
     padding: 0.3em;
 }
-.AuthView form {
+.AuthView .formContainer {
     display: flex;
     flex-flow: column;
     align-items: flex-start;
+}
+.AuthView form {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-end;
+    gap: 0.2em;
 }
 .AuthView .errorMessage {
     color: red;
@@ -85,30 +92,12 @@ button:active {
     color: black;
 }
 .AuthView a:hover {
-    color: white;
+    color: #333333;
 }
 .AuthView a:active {
-    color: #CCCCCC;
+    color: #666666;
 }
 
-.BlogView .category {
-    text-align: left;
-    font-weight: bold;
-
-}
-.BlogView .name {
-    text-align: center;
-    font-size: 120%;
-}
-.BlogView .content {
-
-}
-.BlogView .status {
-    font-size: 80%;
-}
-.BlogView .author {
-    text-align: right;
-}
 .BlogView ul {
     list-style-type: none;
     padding: 0;
@@ -118,14 +107,63 @@ button:active {
     background-color: #FFFFFF;
     padding: 1em;
     border-radius: 0.1cm;
+    display: flex;
+    flex-flow: column;
+    gap: 0.5em;
+}
+.Card .row1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.Card .category {
+    text-align: left;
+    font-weight: bold;
+
+}
+.Card .name {
+    text-align: center;
+    font-size: 120%;
+}
+.Card .content {
+
+}
+.Card .status {
+    text-align: right;
+    font-size: 80%;
+}
+.Card .author {
+    text-align: right;
+}
+.Card .confirmDelete {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 1em;
+}
+.EditeeCard .textInput {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #CCCCCC;
+    border-radius: 0.3rem;
+}
+.EditeeCard .okCancelButtons {
+    display: flex;
+    justify-content: flex-end;
 }
 .NewCard {
-    padding: 0.2em;
+    padding: 0.5em;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
 }
 .CardList {
     display: flex;
     flex-flow: column wrap;
-    align-items: center;
     align-content: center;
     gap: 1em;
+}
+.CardList li {
+    width: 30em;
 }

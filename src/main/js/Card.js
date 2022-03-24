@@ -37,15 +37,15 @@ class Card extends React.Component {
         return (
             <div className="Card">
                 {this.state.confirmingDelete &&
-                    <div>
+                    <div className="confirmDelete">
                         <div>Are you sure you want to Delete this card?</div>
-                        <div>
+                        <div className="confirmDeleteButtons">
                             <button onClick={this.handleCancelDelete}>Cancel</button>
                             <button onClick={this.handleConfirmDelete}>Yes, Delete</button>
                         </div>
                     </div>
                 }
-                <div>
+                <div className="row1">
                     <div className="category">{this.props.category}</div>
                     {this.isEditable() && !this.state.confirmingDelete &&
                         <div>

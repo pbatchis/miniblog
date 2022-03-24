@@ -86,18 +86,19 @@ class EditeeCard extends React.Component {
 
     render() {
         return (
-            <div className="Card">
-                <div>
-                    <input type="text" name="category" placeholder="Category" onChange={this.handleChangeCategory} value={this.state.category} />
-                    <div>
-                        <button onClick={this.handleEditCancel}>Cancel</button>
-                        <button onClick={this.handleEditOk}>OK</button>
-                    </div>
+            <div className="EditeeCard Card">
+                <div className="row1">
+                    <input className="category textInput" type="text" name="category" placeholder="Category" onChange={this.handleChangeCategory} value={this.state.category} />
+                    <div></div>
                 </div>
-                <input type="text" name="name" placeholder="Name" onChange={this.handleChangeName} value={this.state.name} />
-                <textarea name="content" placeholder="Content" onChange={this.handleChangeContent} value={this.state.content} />
-                <input type="text" name="status" placeholder="Status" onChange={this.handleChangeStatus} value={this.state.status} />
+                <input className="name textInput" type="text" name="name" placeholder="Name" onChange={this.handleChangeName} value={this.state.name} />
+                <textarea className="content textInput" name="content" placeholder="Content" onChange={this.handleChangeContent} value={this.state.content} />
+                <input className="status textInput" type="text" name="status" placeholder="Status" onChange={this.handleChangeStatus} value={this.state.status} />
                 <div className="author">{this.props.author}</div>
+                <div className="okCancelButtons">
+                    <button onClick={this.handleEditCancel}>Cancel</button>
+                    <button onClick={this.handleEditOk}>OK</button>
+                </div>
             </div>
         )
     }

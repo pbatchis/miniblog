@@ -51,17 +51,19 @@ class RegisterView extends React.Component {
                     <div>
                         Please choose a username and password:
                     </div>
-                    <div>
+                    <div className="formContainer">
                         <form onSubmit={this.handleSubmit}>
-                            <label>
-                                Username
-                                <input type="text" name="username" onChange={this.handleChangeUsername} />
-                            </label>
-                            <label>
-                                Password
-                                <input type="password" name="password" onChange={this.handleChangePassword} />
-                            </label>
-                            <input className="button" type="submit" value="Register" />
+                            <div>
+                                <label for="username">Username </label>
+                                <input type="text" id="username" name="username" onChange={this.handleChangeUsername} />
+                            </div>
+                            <div>
+                                <label for="password">Password </label>
+                                <input type="password" id="password" name="password" onChange={this.handleChangePassword} />
+                            </div>
+                            <div>
+                                <input className="button" type="submit" value="Register" />
+                            </div>
                         </form>
                     </div>
                     <div className="errorMessage">

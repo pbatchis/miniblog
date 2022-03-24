@@ -227,7 +227,9 @@ class BlogView extends React.Component {
             <div className="BlogView MainView">
                 <ul className="CardList">
                     {!(this.props.username === null) && this.state.editeeId === null &&
-                        <NewCard key="new" onNewCard={this.handleNewCard} />
+                        <li>
+                            <NewCard key="new" onNewCard={this.handleNewCard} />
+                        </li>
                     }
                     {this.state.cards.map((card) => this.buildCardListItem(
                             card.id.toString(),
