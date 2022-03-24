@@ -50,9 +50,6 @@ class EditeeCard extends React.Component {
                 if (response.ok) {
                     response.json().then(data => {
                         const id = data.message.substr(5).split(']')[0];
-                        console.log('message=[' + data.message + ']');
-                        console.log('id=[' + id + ']');
-
                         this.props.onEndEditAndAdd(
                             id,
                             this.state.name,

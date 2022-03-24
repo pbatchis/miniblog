@@ -20,6 +20,12 @@ button, .button {
     padding: 0.3em 0.8em;
     margin: 0.3em;
 }
+button:hover {
+    background-color: #4488DD;
+}
+button:active {
+    background-color: #2266BB;
+}
 
 .ControlBar {
     display: flex;
@@ -54,7 +60,7 @@ button, .button {
     color: white;
 }
 .ControlBar a:active {
-    color: black;
+    color: #CCCCCC;
 }
 
 .AuthView .header {
@@ -74,6 +80,15 @@ button, .button {
 }
 .AuthView .errorMessage {
     color: red;
+}
+.AuthView a {
+    color: black;
+}
+.AuthView a:hover {
+    color: white;
+}
+.AuthView a:active {
+    color: #CCCCCC;
 }
 
 .BlogView .category {

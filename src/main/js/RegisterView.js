@@ -1,4 +1,5 @@
 const React = require('react');
+const postJson = require('./postJson').default;
 
 class RegisterView extends React.Component {
 
@@ -12,7 +13,6 @@ class RegisterView extends React.Component {
         this.handleChangeUsername = this.handleChangeUsername.bind(this);
         this.handleChangePassword = this.handleChangePassword.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleRegisterResponse = this.handleRegisterResponse.bind(this);
     }
 
     handleChangeUsername(event) {
@@ -25,29 +25,20 @@ class RegisterView extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        fetch('/api/auth/register', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    username: this.state.username, 
-                    password: this.state.password
+        postJson('/api/auth/register', {
+            username: this.state.username, 
+            password: this.state.password
+        })
+        .then((response) => {
+            if (response.ok) {
+                this.setState({failureMessage: ''});
+                this.props.onRegisterSuccess();
+            } else {
+                response.json().then( data => {
+                    this.setState({failureMessage: 'Registration Failed: ' + data.message});
                 })
-            })
-            .then(this.handleRegisterResponse)
-    }
-
-    handleRegisterResponse(response) {
-        if (response.ok) {
-            this.setState({failureMessage: ''});
-
-        } else {
-            response.json().then( data => {
-                this.setState({failureMessage: 'Registration Failed: ' + data.message});
-            })
-        }
+            }
+        });
     }
 
     render() {

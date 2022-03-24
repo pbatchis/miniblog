@@ -1,4 +1,5 @@
 const React = require('react');
+const postJson = require('./postJson').default;
 
 class SignInView extends React.Component {
 
@@ -12,7 +13,6 @@ class SignInView extends React.Component {
         this.handleChangeUsername = this.handleChangeUsername.bind(this);
         this.handleChangePassword = this.handleChangePassword.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleSignInResponse = this.handleSignInResponse.bind(this);
     }
 
     handleChangeUsername(event) {
@@ -25,31 +25,22 @@ class SignInView extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        fetch('/api/auth/signin', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    username: this.state.username, 
-                    password: this.state.password
+        postJson('/api/auth/signin', {
+            username: this.state.username, 
+            password: this.state.password
+        })
+        .then((response) => {
+            if (response.ok) {
+                this.setState({failureMessage: ''});
+                response.json().then(data => {
+                    this.props.onSignInSuccess(data.username, data.accessToken);
                 })
-            })
-            .then(this.handleSignInResponse)
-    }
-
-    handleSignInResponse(response) {
-        if (response.ok) {
-            this.setState({failureMessage: ''});
-            response.json().then(data => {
-                this.props.onSignInSuccess(data.username, data.accessToken);
-            })
-        } else {
-            response.json().then(data => {
-                this.setState({failureMessage: 'Sign in Failed: ' + data.message});
-            })
-        }
+            } else {
+                response.json().then(data => {
+                    this.setState({failureMessage: 'Sign in Failed: ' + data.message});
+                })
+            }
+        });
     }
 
     render() {
