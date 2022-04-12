@@ -1,11 +1,11 @@
 # miniblog
 Simple mini-blog application with back-end server, and front-end.
 
-This is a blog application that allows a user to post blog entrie, go back and edit existing entrie, or delete them. They may read other user's blog entries but can only edit or delete their own. The authorization is controled by the client's JWT login credential, which is given to them by the server at the time of authentication. The back-end of the application is implemented in the Spring framework for Java, and uses a PostgreSQL database. The front end is implemented by React framework for Javascript to create a single page application in which most of the HTML is rendered on the client side. The build and runtime deployment is controlled by the Apache Maven tool.
+This is a blog application that allows a user to post blog entrie, go back and edit existing entries, or delete them. They may read other user's blog entries but can only edit or delete their own. The authorization is controled by the client's JWT login credential, which is given to them by the server at the time of authentication. The back-end of the application is implemented in the Spring framework for Java, and uses a PostgreSQL database. The front end is implemented by React framework for Javascript to create a single page application in which most of the HTML is rendered on the client side. The build and runtime deployment is controlled by the Apache Maven tool.
 
 ## How to Run and Test the Application
 
-After you pull the code from Github, you will need to set up a database instance on PostgreSQL. This was developed and tested using a locally installed instance of PostgreSQL. If you don't have an instance installed you may download the installation for you OS from (https://www.postgresql.org/download/) or use Docker. 
+After you pull the code from Github, you will need to set up a database instance on PostgreSQL. This was developed and tested using a locally installed instance of PostgreSQL. If you don't have an instance installed you may download the installation for your OS from https://www.postgresql.org/download/ or use Docker. 
 
 Once PostgreSQL is installed you can use their admin tool to create a user account. Once you have the account, you can use command line to set up the database. Make sure the bin directory of the PostgreSQL installation is in your PATH. Then you can type ```createdb miniblog``` to create a database called miniblog.
 
