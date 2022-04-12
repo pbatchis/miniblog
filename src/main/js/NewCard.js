@@ -1,18 +1,11 @@
-const React = require('react');
+import React from "react";
 
-class NewCard extends React.Component {
-    
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <div className="NewCard Card">
-                <button onClick={this.props.onNewCard}>Add New Card</button>
-            </div>
-        )
-    }
+function NewCard(props) {
+    return (
+        <div className="NewCard Card">
+            <button onClick={props.onNewCard}>Add New Card</button>
+        </div>
+    );
 }
 
-export default NewCard
+export default NewCard;
