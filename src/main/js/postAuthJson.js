@@ -4,7 +4,7 @@ function postAuthJson(url, jwtToken, body) {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      Authorization: "Bearer " + jwtToken,
+      Authorization: `Bearer ${jwtToken}`,
     },
     body: JSON.stringify(body),
   });

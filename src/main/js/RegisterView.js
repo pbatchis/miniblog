@@ -25,7 +25,7 @@ function RegisterView(props) {
         props.onRegisterSuccess();
       } else {
         response.json().then((data) => {
-          setFailureMessage("Registration Failed: " + data.message);
+          setFailureMessage(`Registration Failed: ${data.message}`);
         });
       }
     });

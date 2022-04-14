@@ -27,7 +27,7 @@ function SignInView(props) {
         });
       } else {
         response.json().then((data) => {
-          setFailureMessage("Sign in Failed: " + data.message);
+          setFailureMessage(`Sign in Failed: ${data.message}`);
         });
       }
     });
