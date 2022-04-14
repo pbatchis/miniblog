@@ -1,166 +1,165 @@
-
 * {
-    font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-    background-color: #DDDDDD;
-    margin: 0;
+  background-color: #dddddd;
+  margin: 0;
 }
 
 .MainView {
-    background-color: #DDDDDD;
-    padding: 1em;
+  background-color: #dddddd;
+  padding: 1em;
 }
 
-button, .button {
-    background-color: #66AAFF;
-    color: white;
-    border: 0;
-    border-radius: 0.3em;
-    padding: 0.3em 0.8em;
-    margin: 0 0.3em;
+button,
+.button {
+  background-color: #66aaff;
+  color: white;
+  border: 0;
+  border-radius: 0.3em;
+  padding: 0.3em 0.8em;
+  margin: 0 0.3em;
 }
 button:hover {
-    background-color: #4488DD;
+  background-color: #4488dd;
 }
 button:active {
-    background-color: #2266BB;
+  background-color: #2266bb;
 }
 
 .ControlBar {
-    display: flex;
-    justify-content: space-between;
-    background-color: #66AAFF;
-    padding: 0;
+  display: flex;
+  justify-content: space-between;
+  background-color: #66aaff;
+  padding: 0;
 }
 .ControlBar .startSide {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0;
 }
 .ControlBar .endSide {
-    display: flex;
-    justify-content: flex-end;
-    padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
 }
 .ControlBar a {
-    margin: 1.5em;
-    padding: 0;
-    text-decoration: none;
-    color: black;
+  margin: 1.5em;
+  padding: 0;
+  text-decoration: none;
+  color: black;
 }
 .ControlBar .startSide a {
-    font-size: 200%;
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-left: 0.80em;
+  font-size: 200%;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0.8em;
 }
 .ControlBar a:hover {
-    color: #333333;
+  color: #333333;
 }
 .ControlBar a:active {
-    color: #666666;
-} 
+  color: #666666;
+}
 
 .AuthView .header {
-    padding: 1em;
-    font-size: 120%;
+  padding: 1em;
+  font-size: 120%;
 }
 .AuthView .body {
-    padding: 1em;
+  padding: 1em;
 }
 .AuthView .body * {
-    padding: 0.3em;
+  padding: 0.3em;
 }
 .AuthView .formContainer {
-    display: flex;
-    flex-flow: column;
-    align-items: flex-start;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
 }
 .AuthView form {
-    display: flex;
-    flex-flow: column;
-    align-items: flex-end;
-    gap: 0.2em;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-end;
+  gap: 0.2em;
 }
 .AuthView .errorMessage {
-    color: red;
+  color: red;
 }
 .AuthView a {
-    color: black;
+  color: black;
 }
 .AuthView a:hover {
-    color: #333333;
+  color: #333333;
 }
 .AuthView a:active {
-    color: #666666;
+  color: #666666;
 }
 
 .BlogView ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 .Card {
-    background-color: #FFFFFF;
-    padding: 1em;
-    border-radius: 0.1cm;
-    display: flex;
-    flex-flow: column;
-    gap: 0.5em;
+  background-color: #ffffff;
+  padding: 1em;
+  border-radius: 0.1cm;
+  display: flex;
+  flex-flow: column;
+  gap: 0.5em;
 }
 .Card .row1 {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 .Card .category {
-    text-align: left;
-    font-weight: bold;
-
+  text-align: left;
+  font-weight: bold;
 }
 .Card .name {
-    text-align: center;
-    font-size: 120%;
+  text-align: center;
+  font-size: 120%;
 }
 .Card .status {
-    text-align: right;
-    font-size: 80%;
+  text-align: right;
+  font-size: 80%;
 }
 .Card .author {
-    text-align: right;
+  text-align: right;
 }
 .Card .confirmDelete {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    gap: 1em;
-    margin-bottom: 1em;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 1em;
 }
 .EditeeCard .textInput {
-    border-style: solid;
-    border-width: 1px;
-    border-color: #CCCCCC;
-    border-radius: 0.3rem;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #cccccc;
+  border-radius: 0.3rem;
 }
 .EditeeCard .okCancelButtons {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 .NewCard {
-    padding: 0.5em;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
+  padding: 0.5em;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
 }
 .CardList {
-    display: flex;
-    flex-flow: column wrap;
-    align-content: center;
-    gap: 1em;
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+  gap: 1em;
 }
 .CardList li {
-    width: 30em;
+  width: 30em;
 }
