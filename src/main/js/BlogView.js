@@ -54,32 +54,18 @@ function BlogView(props) {
     setEditeeId(cardId);
   }
 
-  function handleEndEdit(cardId) {
+  function handleEndEdit() {
     // remove card from state if it doesn't exist (a cancelled add card).
     // remove card from editee session.
-    const updatedCards = [];
-    for (let card of cards) {
-      // id of -1 means the card didn't exist.
-      if (card.id !== -1) {
-        updatedCards.push({
-          id: card.id,
-          name: card.name,
-          status: card.status,
-          content: card.content,
-          category: card.category,
-          author: card.author,
-        });
-      }
-    }
-    setCards(updatedCards);
+    // id of -1 means the card didn't exist.
+    setCards(cards.filter((card) => card.id !== -1));
     setEditeeId(null);
   }
 
   function handleEndEditAndAdd(cardId, name, status, content, category) {
-    const cardIdNum = parseInt(cardId);
     const updatedCards = [];
     updatedCards.push({
-      id: cardIdNum,
+      id: cardId,
       name: name,
       status: status,
       content: content,
@@ -103,10 +89,9 @@ function BlogView(props) {
   }
 
   function handleEndEditAndUpdate(cardId, name, status, content, category) {
-    const cardIdNum = parseInt(cardId);
     const updatedCards = [];
     for (let card of cards) {
-      if (card.id === cardIdNum) {
+      if (card.id === cardId) {
         updatedCards.push({
           id: card.id,
           name: name,
@@ -136,21 +121,7 @@ function BlogView(props) {
     }).then((response) => {
       if (response.ok) {
         // remove card from state
-        const cardIdNum = parseInt(cardId);
-        const updatedCards = [];
-        for (let card of cards) {
-          if (card.id !== cardIdNum) {
-            updatedCards.push({
-              id: card.id,
-              name: card.name,
-              status: card.status,
-              content: card.content,
-              category: card.category,
-              author: card.author,
-            });
-          }
-        }
-        setCards(updatedCards);
+        setCards(cards.filter((card) => card.id !== cardId));
       }
     });
   }

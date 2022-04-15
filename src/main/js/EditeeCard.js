@@ -24,7 +24,7 @@ function EditeeCard(props) {
   }
 
   function handleEditCancel() {
-    props.onEndEdit(props.id);
+    props.onEndEdit();
   }
 
   function handleEditOk() {
