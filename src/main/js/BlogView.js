@@ -60,7 +60,7 @@ function BlogView(props) {
     const updatedCards = [];
     for (let card of cards) {
       // id of -1 means the card didn't exist.
-      if (!(card.id === -1)) {
+      if (card.id !== -1) {
         updatedCards.push({
           id: card.id,
           name: card.name,
@@ -87,7 +87,7 @@ function BlogView(props) {
       author: props.username,
     });
     for (let card of cards) {
-      if (!(card.id === -1)) {
+      if (card.id !== -1) {
         updatedCards.push({
           id: card.id,
           name: card.name,
@@ -139,7 +139,7 @@ function BlogView(props) {
         const cardIdNum = parseInt(cardId);
         const updatedCards = [];
         for (let card of cards) {
-          if (!(card.id === cardIdNum)) {
+          if (card.id !== cardIdNum) {
             updatedCards.push({
               id: card.id,
               name: card.name,
