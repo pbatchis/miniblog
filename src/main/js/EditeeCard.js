@@ -44,8 +44,7 @@ function EditeeCard(props) {
     }).then((response) => {
       if (response.ok) {
         response.json().then((data) => {
-          const id = parseInt(data.message.substr(5).split("]")[0]);
-          props.onEndEditAndAdd(id, name, status, content, category);
+          props.onEndEditAndAdd(data.id, name, status, content, category);
         });
       }
     });

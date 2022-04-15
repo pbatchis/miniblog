@@ -7,6 +7,7 @@ import com.pbatchis.miniblog.domain.User;
 import com.pbatchis.miniblog.payload.request.CardAddRequestBody;
 import com.pbatchis.miniblog.payload.request.CardDeleteRequestBody;
 import com.pbatchis.miniblog.payload.request.CardEditRequestBody;
+import com.pbatchis.miniblog.payload.response.CardAddResponseBody;
 import com.pbatchis.miniblog.payload.response.CardGetResponseBody;
 import com.pbatchis.miniblog.payload.response.MessageResponseBody;
 import com.pbatchis.miniblog.repository.CardRepository;
@@ -62,7 +63,7 @@ public class CardController {
 				requestBody.getCategory(),
 				user.get());
 		cardRepository.save(card);
-		return ResponseEntity.ok(MessageResponseBody.of("Card[%d] added.", card.getId()));
+		return ResponseEntity.ok(CardAddResponseBody.of(card.getId()));
 	}
 
 	@PostMapping("/edit")
