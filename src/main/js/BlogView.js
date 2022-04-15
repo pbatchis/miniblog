@@ -47,7 +47,7 @@ function BlogView(props) {
       });
     }
     setCards(updatedCards);
-    setEditeeId("-1");
+    setEditeeId(-1);
   }
 
   function handleBeginEdit(cardId) {
@@ -200,7 +200,7 @@ function BlogView(props) {
         )}
         {cards.map((card) =>
           buildCardListItem(
-            card.id.toString(),
+            card.id,
             card.name,
             card.status,
             card.content,

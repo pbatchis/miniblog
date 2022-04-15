@@ -28,7 +28,7 @@ function EditeeCard(props) {
   }
 
   function handleEditOk() {
-    if (props.id === "-1") {
+    if (props.id === -1) {
       addCard();
     } else {
       editCard();
@@ -44,7 +44,7 @@ function EditeeCard(props) {
     }).then((response) => {
       if (response.ok) {
         response.json().then((data) => {
-          const id = data.message.substr(5).split("]")[0];
+          const id = parseInt(data.message.substr(5).split("]")[0]);
           props.onEndEditAndAdd(id, name, status, content, category);
         });
       }
