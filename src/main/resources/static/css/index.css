@@ -1,37 +1,45 @@
-* {
-  font-family: Arial, Helvetica, sans-serif;
+:root {
+  --trimColor: #0069d1;
+  --hoverTrimColor: #0054a8;
+  --activeTrimColor: #003d7a;
+  --trimTextColor: white;
+  --hoverTrimTextColor: #e6e6e6;
+  --activeTrimTextColor: #cccccc;
+  --textColor: black;
+  --hoverTextColor: #333333;
+  --activeTextColor: #666666;
 }
 
 body {
+  font-family: Arial, Helvetica, sans-serif;
   background-color: #dddddd;
   margin: 0;
 }
 
 .MainView {
-  background-color: #dddddd;
   padding: 1em;
 }
 
 button,
 .button {
-  background-color: #66aaff;
+  background-color: var(--trimColor);
   color: white;
   border: 0;
-  border-radius: 0.3em;
-  padding: 0.3em 0.8em;
-  margin: 0 0.3em;
+  border-radius: 0.22rem;
+  padding: 0.3rem 0.8rem;
+  margin: 0 0.3rem;
 }
 button:hover {
-  background-color: #4488dd;
+  background-color: var(--hoverTrimColor);
 }
 button:active {
-  background-color: #2266bb;
+  background-color: var(--activeTrimColor);
 }
 
 .ControlBar {
   display: flex;
   justify-content: space-between;
-  background-color: #66aaff;
+  background-color: var(--trimColor);
   padding: 0;
 }
 .ControlBar .startSide {
@@ -46,10 +54,10 @@ button:active {
   padding: 0;
 }
 .ControlBar a {
-  margin: 1.5em;
+  margin: 1.5rem;
   padding: 0;
   text-decoration: none;
-  color: black;
+  color: var(--trimTextColor);
 }
 .ControlBar .startSide a {
   font-size: 200%;
@@ -58,10 +66,10 @@ button:active {
   margin-left: 0.8em;
 }
 .ControlBar a:hover {
-  color: #333333;
+  color: var(--hoverTrimTextColor);
 }
 .ControlBar a:active {
-  color: #666666;
+  color: var(--activeTrimTextColor);
 }
 
 .AuthView .header {
@@ -89,13 +97,13 @@ button:active {
   color: red;
 }
 .AuthView a {
-  color: black;
+  color: var(--textColor);
 }
 .AuthView a:hover {
-  color: #333333;
+  color: var(--hoverTextColor);
 }
 .AuthView a:active {
-  color: #666666;
+  color: var(--activeTextColor);
 }
 
 .BlogView ul {
@@ -104,12 +112,12 @@ button:active {
   margin: 0;
 }
 .Card {
-  background-color: #ffffff;
-  padding: 1em;
-  border-radius: 0.1cm;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 3.5px;
   display: flex;
   flex-flow: column;
-  gap: 0.5em;
+  gap: 0.5rem;
 }
 .Card .row1 {
   display: flex;
@@ -135,8 +143,8 @@ button:active {
   display: flex;
   flex-flow: column;
   align-items: center;
-  gap: 1em;
-  margin-bottom: 1em;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 .EditeeCard .textInput {
   border-style: solid;
@@ -149,7 +157,7 @@ button:active {
   justify-content: flex-end;
 }
 .NewCard {
-  padding: 0.5em;
+  padding: 0.5rem;
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -158,8 +166,8 @@ button:active {
   display: flex;
   flex-flow: column wrap;
   align-content: center;
-  gap: 1em;
+  gap: 1rem;
 }
 .CardList li {
-  width: 30em;
+  width: 30rem;
 }
