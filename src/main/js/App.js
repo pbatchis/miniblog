@@ -6,56 +6,70 @@ import RegisterView from "./RegisterView";
 import RegisterSuccessView from "./RegisterSuccessView";
 import SignInView from "./SignInView";
 
-function App(props) {
-  const [viewMode, setViewMode] = useState("BlogView");
+function App() {
+  const ViewMode = {
+    BlogView: "BlogView",
+    RegisterView: "RegisterView",
+    RegisterSuccessView: "RegisterSuccessView",
+    SignInView: "SignInView",
+  };
+  const [viewMode, setViewMode] = useState(ViewMode.BlogView);
   const [username, setUsername] = useState(null);
   const [jwtToken, setJwtToken] = useState(null);
 
   function handleBlog(event) {
     event.preventDefault();
-    setViewMode("BlogView");
+    setViewMode(ViewMode.BlogView);
   }
 
   function handleRegister(event) {
     event.preventDefault();
-    setViewMode("RegisterView");
+    setViewMode(ViewMode.RegisterView);
   }
 
   function handleRegisterSuccess() {
-    setViewMode("RegisterSuccessView");
+    setViewMode(ViewMode.RegisterSuccessView);
   }
 
   function handleSignIn(event) {
     event.preventDefault();
-    setViewMode("SignInView");
+    setViewMode(ViewMode.SignInView);
   }
 
   function handleSignInSuccess(username, jwtToken) {
-    setViewMode("BlogView");
+    setViewMode(ViewMode.BlogView);
     setUsername(username);
     setJwtToken(jwtToken);
   }
 
   function handleSignOut(event) {
     event.preventDefault();
-    setViewMode("BlogView");
+    setViewMode(ViewMode.BlogView);
     setUsername(null);
     setJwtToken(null);
   }
 
-  function isSignedIn() {
-    return jwtToken !== null;
+  function buildControlBar() {
+    return jwtToken === null ? (
+      <AnonControlBar
+        onBlog={handleBlog}
+        onRegister={handleRegister}
+        onSignIn={handleSignIn}
+      />
+    ) : (
+      <SignedInControlBar onBlog={handleBlog} onSignOut={handleSignOut} />
+    );
   }
 
   function buildMainView() {
     switch (viewMode) {
-      case "BlogView":
+      case ViewMode.BlogView:
         return <BlogView username={username} jwtToken={jwtToken} />;
-      case "RegisterView":
+      case ViewMode.RegisterView:
         return <RegisterView onRegisterSuccess={handleRegisterSuccess} />;
-      case "RegisterSuccessView":
+      case ViewMode.RegisterSuccessView:
         return <RegisterSuccessView onSignIn={handleSignIn} />;
-      case "SignInView":
+      case ViewMode.SignInView:
         return <SignInView onSignInSuccess={handleSignInSuccess} />;
       default:
         return null;
@@ -64,15 +78,7 @@ function App(props) {
 
   return (
     <div className="App">
-      {isSignedIn() ? (
-        <SignedInControlBar onBlog={handleBlog} onSignOut={handleSignOut} />
-      ) : (
-        <AnonControlBar
-          onBlog={handleBlog}
-          onRegister={handleRegister}
-          onSignIn={handleSignIn}
-        />
-      )}
+      {buildControlBar()}
       {buildMainView()}
     </div>
   );
