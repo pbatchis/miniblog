@@ -1,8 +1,14 @@
 # miniblog
 
+## Version 2.0.0
+
+This is version 2.0.0. It has been refactored and upgraded. The Javascript code now uses React hooks, high-order array methods, template literals, enum-like structures, includes several fixes to the code structure, formatting, improved REST API, and improved CSS including transitions.
+
+## Introduction
+
 Simple mini-blog application with back-end server, and front-end.
 
-This is a blog application that allows a user to post blog entrie, go back and edit existing entries, or delete them. They may read other user's blog entries but can only edit or delete their own. The authorization is controled by the client's JWT login credential, which is given to them by the server at the time of authentication. The back-end of the application is implemented in the Spring framework for Java, and uses a PostgreSQL database. The front end is implemented by React framework for Javascript to create a single page application in which most of the HTML is rendered on the client side. The build and runtime deployment is controlled by the Apache Maven tool.
+This is a blog application that allows a user to post blog entries, go back and edit existing entries, or delete them. They may read other user's blog entries but can only edit or delete their own. The authorization is controlled by the client's JWT login credential, which is given to them by the server at the time of authentication. The back-end of the application is implemented in the Spring framework for Java, and uses a PostgreSQL database. The front end is implemented by React framework for Javascript to create a single page application in which most of the HTML is rendered on the client side. The build and runtime deployment is controlled by the Apache Maven tool.
 
 ## How to Run and Test the Application
 
